@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 import "./nav.css";
 
-const Nav = ({ query, handleInputChange }) => {
+const Nav = ({ query, handleInputChange, showSearch = true }) => {
   const [show, setShow] = useState(true);
+  const { cartItems } = useCart();
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -11,16 +17,15 @@ const Nav = ({ query, handleInputChange }) => {
     const updateScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Ignore small scrolls (under 10px)
       if (Math.abs(currentScrollY - lastScrollY) < 10) {
         ticking = false;
         return;
       }
 
       if (currentScrollY > lastScrollY) {
-        setShow(false); // scrolling down
+        setShow(false);
       } else {
-        setShow(true); // scrolling up
+        setShow(true);
       }
 
       lastScrollY = currentScrollY;
@@ -38,19 +43,36 @@ const Nav = ({ query, handleInputChange }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle("dark-mode");
+  };
+
   return (
     <nav className={`nav ${show ? "show" : "hide"}`}>
       <div className="nav-container">
-        <input
-          type="text"
-          value={query}
-          onChange={handleInputChange}
-          placeholder="Search for Shoes"
-          className="search-input"
-        />
+        {showSearch && (
+          <input
+            type="text"
+            value={query}
+            onChange={handleInputChange}
+            placeholder="Search for Shoes"
+            className="search-input"
+          />
+        )}
       </div>
-      <div>
-        <h1 className="title font-matangi">Sliders</h1>
+
+      <div className="profile-container">
+        <Link to="/cart" className="cart-icon-container">
+          <AiOutlineShoppingCart className="nav-icons" />
+          {cartItems.length > 0 && (
+            <span className="cart-badge">{cartItems.length}</span>
+          )}
+        </Link>
+
+        <button onClick={toggleDarkMode} className="dark-mode-btn">
+          {darkMode ? <MdLightMode className="nav-icons" /> : <MdDarkMode className="nav-icons" />}
+        </button>
       </div>
     </nav>
   );

@@ -11,15 +11,14 @@
 }
    
   .sidebar-label-container {
-    display: flex;
-    justify-content: center;
+    display: flex; /* Use flex for alignment */
+    align-items: center;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
     cursor: pointer;
     user-select: none;
     font-size: 18px;
-    margin-left: -15px;
   }
   
   .sidebar-label-container input {
@@ -30,10 +29,10 @@
   
   .checkmark {
     position: absolute;
-    top: 5px;
+    top: 0;
     left: 0;
-    height: 23px;
-    width: 23px;
+    height: 20px; /* Reduced size */
+    width: 20px; /* Reduced size */
     border: 2px solid #5b5b5b;
     background-color: #eee;
     border-radius: 50%;
@@ -64,10 +63,10 @@
   }
   
   .sidebar-label-container .checkmark:after {
-    top: 6.4px;
-    left: 6.4px;
-    width: 7px;
-    height: 7px;
+    top: 6px;
+    left: 6px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: white;
   }

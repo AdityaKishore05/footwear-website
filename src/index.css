@@ -1,26 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=Matangi:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Matangi:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import "tailwindcss";
 
-@theme {
-    --font-matangi:'Matangi', 'sans-serif';
-    --font-montserrat:'Montserrat', 'sans-serif';
-}
-
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration: none;
     color: #282828;
 }
 
-li{
+li {
     list-style: none;
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Global Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+    color: white;
+}
+
+body.dark-mode .card-title {
+    color: white;
+}
+
+body.dark-mode .sidebar {
+    background-color: #1e1e1e;
+    border-right: 1px solid #333;
+}
+
+body.dark-mode .category-label, 
+body.dark-mode .price-label,
+body.dark-mode .sidebar-title {
+    color: white;
+}
+
+body.dark-mode .card-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+body.dark-mode .bag-icon {
+    color: #ffffff;
+}
+
+body.dark-mode del {
+    color: #888;
+}
+
 
 

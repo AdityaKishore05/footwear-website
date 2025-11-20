@@ -14,7 +14,7 @@
 /* Original position */
 .recommended-flex.original-position {
   position: fixed;
-  top: 30px; /* Adjust based on your layout */
+  top: 23px; /* Adjust based on your layout */
   transition: 0.5s;
   left: 450px;
 }
@@ -22,7 +22,7 @@
 /* Stuck to top on scroll down */
 .recommended-flex.stick-to-top {
   position: fixed;
-  top: 20px;
+  top: 23px;
   left: 450px;
   transition: 0.5s;
 }
@@ -31,7 +31,7 @@
 
 .btns {
   font-size: 20px;
-  padding: 2px 15px;
+  padding: 7px 15px;
   cursor: pointer;
   user-select: none;
   border: none;
@@ -75,3 +75,18 @@
     margin-left: 0px;
   }
 }
+
+/* Dark Mode Support */
+body.dark-mode .btns {
+  background-color: #1e1e1e;
+  color: white;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+}
+
+body.dark-mode .btns:hover {
+  border-top: 3px solid #777;
+  border-bottom: 3px solid #777;
+  background-color: #333;
+}
+
