@@ -4,7 +4,6 @@ import data from '../db/Data';
 import { useCart } from '../context/CartContext';
 import { IoArrowBack } from 'react-icons/io5';
 import { BsFillBagFill } from 'react-icons/bs';
-import Toast from '../components/Toast';
 import Nav from '../Navigation/Nav';
 import "./ProductDetails.css";
 
@@ -12,7 +11,6 @@ const ProductDetails = () => {
     const { id } = useParams();
     const product = data.find(p => p.title === decodeURIComponent(id));
     const { addToCart } = useCart();
-    const [toastMessage, setToastMessage] = useState(null);
 
     if (!product) {
         return (
@@ -25,13 +23,11 @@ const ProductDetails = () => {
 
     const handleAddToCart = () => {
         addToCart(product);
-        setToastMessage(`Added ${product.title} to cart!`);
     };
 
     return (
         <div className="product-details-container">
             <Nav showSearch={false} />
-            <Toast message={toastMessage} type="success" onClose={() => setToastMessage(null)} />
 
             <Link to="/" className="back-link">
                 <IoArrowBack /> Back to Shopping
