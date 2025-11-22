@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Recommended.css';
+import '../Recommended/Recommended.css';
 import Button from '../components/Button';
 
 const Recommended = ({ handleClick }) => {

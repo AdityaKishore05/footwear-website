@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Category.css";
+import "../Category/Category.css";
 import Side from "../../components/Side";
 
 const Category = ({ handleChange }) => {
