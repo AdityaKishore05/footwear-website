@@ -7,7 +7,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/footwear-website">
+    <BrowserRouter basename="/">
       <CartProvider>
         <App />
       </CartProvider>
