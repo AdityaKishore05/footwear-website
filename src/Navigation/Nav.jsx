@@ -3,7 +3,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import "./nav.css";
+import "../Navigation/Nav.css";
 
 const Nav = ({ query, handleInputChange, showSearch = true }) => {
   const [show, setShow] = useState(true);
